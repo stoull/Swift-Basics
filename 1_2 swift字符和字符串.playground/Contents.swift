@@ -64,5 +64,5 @@ dogString.unicodeScalars
 let queryAllowedDog = dogString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)      // 编码方式
 
 print(utf8Dog)
-print(queryAllowedDog ?? <#default value#>)
+print(queryAllowedDog ?? "queryAllowedDog is empty")
 
