@@ -92,11 +92,13 @@ default:
 let aPoint = (1, -1)
 switch aPoint {
 case let (x, y) where x == y:
-    print("(\(x),\(Y)) 在直线 x == y 上")
+    print("(\(x),\(y)) 在直线 x == y 上")
 case let (x, y) where x == -y:
-    print("(\(x),\(Y)) 在直线 x == -y 上")
+    print("(\(x),\(y)) 在直线 x == -y 上")
 case let (x, y) where x == y:
-    print("(\(x),\(Y)) 应该不在直线 x = +-y 上")
+    print("(\(x),\(y)) 应该不在直线 x = +-y 上")
+default:
+    print("What")
 }
 
 // 看看这个用的巧秒miao。。
@@ -162,7 +164,9 @@ if #available(iOS 10, *) { // 如可在 iOS 10 以上使用.font方法
 }
 
 // 也可以写成这样子 guard
-guard #available(iOS 10, *) else { // 如可在 iOS 10 以上不能使用.font方法
-    // do something here
-}
+//guard #available(iOS 10, *) else { // 如可在 iOS 10 以上不能使用.font方法
+//    // do something here
+//    return
+//}
+
 
