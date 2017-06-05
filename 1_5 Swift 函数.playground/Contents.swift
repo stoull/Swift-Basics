@@ -79,7 +79,7 @@ if let bounds = minMax(array: [3, 4, -5, 23, -66, 64]) {
     print("Max : \(bounds.max)\n Min : \(bounds.min)")
 }
 
-
+// 函数的参数标准定义为： (外部名 内部名 ：类型)。 如果没有外部名，那么函数的参数默认是局部的。
 // 函数变量标签和参数名 标签是调用该函数的时候使用，参数名则是在 implementation 后使用。如下：
 func someFunction(argumentLabel parameterName: Int) {
     // In the function body, parameterName refers to the argument value
@@ -92,7 +92,7 @@ func aGreet(person: String, from hometown: String) -> String {
 
 print(aGreet(person: "Bill", from: "Beijing"))
 
-// 你也可以忽略变理标签
+// 你也可以忽略变量标签
 func aNoGreet(_ person: String, from homtown: String) -> String {
     return "Hello \(person)! Glad you could visit from \(homtown)."
 }
