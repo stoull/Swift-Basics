@@ -77,3 +77,44 @@ print("triangle's height is : \(tr1.height)")
  */
 
 // 属性观测器
+/*
+ 属性观测器是两个可以附加在存储属性之后的函数。一个是willSet,另一个是didSet。前者在属性被赋值之前调用。后者在属性被赋值之后调用。
+ 这两个函数的参数就是你要赋的值，其名字你可以自己指定。如果不指定参数名，那么可以在函数体内用newValue代替。如下例：
+ */
+class stepCounter {
+    var totalSteps: Int = 0{
+        willSet(newTotalSteps){
+            // Do something here
+            print("属性totalSteps will change")
+        }
+        didSet {
+            // Do something
+            print("属性totalSteps did change")
+        }
+    }
+}
+
+let StpCounter = stepCounter()
+StpCounter.totalSteps = 220
+
+// 类型属性 (类型属性是在类上被读写，而不是在实例上) 和静态变量 static , 类没有实例化也有属性！！
+// 类型属性是和类绑定的计算属性。Swift目前只支持计算类型属性。不支持存储类型属性。它的写法为：
+class Plane {
+class var elevation: Float {
+        get { return 22200 } set(newElevation)
+        {
+            elevation = newElevation
+        }
+    }
+    
+    static var size: Float = 150        // 静态的存储属性
+    static var capacity: Int {          // 静态的计算属性
+        return Int(self.size / 5.0)
+    }
+}
+
+// 这个时候都可以在类用使用class 和 static 属性
+print("Class Plane Size : \(Plane.size)")
+print("Plane's elevation : \(Plane.elevation)")
+print("Class Plane Capacity: \(Plane.capacity))
+
