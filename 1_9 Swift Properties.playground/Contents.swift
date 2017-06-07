@@ -116,5 +116,5 @@ class var elevation: Float {
 // 这个时候都可以在类用使用class 和 static 属性
 print("Class Plane Size : \(Plane.size)")
 print("Plane's elevation : \(Plane.elevation)")
-print("Class Plane Capacity: \(Plane.capacity))
+print("Class Plane Capacity: \(Plane.capacity)")
 
