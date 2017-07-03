@@ -142,10 +142,3 @@ if ((AChang.residence?.printNumberOfRooms()) != nil) {
 }else {
     print("无法输出房间号")
 }
-
-
-
-
-
-
-
