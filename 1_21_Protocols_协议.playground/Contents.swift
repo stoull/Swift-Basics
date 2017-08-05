@@ -127,14 +127,18 @@ protocol InitProtocol {
 }
 
 class InitClass: InitProtocol {
-     init(someParameter: Int) {  // required 表示协议规定
+     required init(someParameter: Int) {  // required 表示协议规定
         
     }
 }
 
 class SubInitClass: InitClass {
-    required override init() { // 有协议和继承关系
+    required init() { // 有协议和继承关系
         
+    }
+    
+    required init(someParameter: Int) {
+        fatalError("init(someParameter:) has not been implemented")
     }
 }
 
