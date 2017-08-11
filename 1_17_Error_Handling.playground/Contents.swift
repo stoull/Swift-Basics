@@ -140,6 +140,7 @@ do {
     y = try someThrowingFunction()
 } catch {
     y = nil
+     print(error)
 }
 
 // 像处理获取数据的异常，变可选
