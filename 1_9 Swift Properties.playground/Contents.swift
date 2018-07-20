@@ -19,9 +19,10 @@ import Foundation
  Swift中懒加载的本质：
  
  它本质在siwft中确实是一个闭包，执行顺序是这样的，如果这个lazy修饰的变量没值，就会执行闭包中的东西，不是每次都执行（本人补充：这也就是为什么在Swift中的懒加载没有oc中判断。if（xx==nil）{初始化xx}的代码段）。
+ 在第一次调用时，执行闭包并且分配空间存储闭包返回的数值
+ 会分配独立的存储空间
+ 与 OC 不同的是，lazy 属性即使被设置为 nil 也不会被再次调用
  
- 引用自：http://www.jianshu.com/p/88c1ee5661af
- 个人学习用
  */
 
 // 属性的类型，只读，
@@ -29,6 +30,23 @@ import Foundation
 // 属性
 // 属性有三种：存储属性和计算属性，这两种是和实例绑定的实例属性。类型属性是和类绑定的类型属性
 
+
+"ReadOnly   !!!"
+/*
+ class ReadOnly {
+ private(set) var name: String
+ 
+ init(_ name: String) {
+ self.name = name
+ }
+ }
+ 
+ let obj = ReadOnly.init("hah")
+ //以下代码会报错
+ obj.name = "hahh"
+
+ 注意点：可设置fileprivate(set)为当前文件可调用set，private(set)class内有效。
+ */
 
 // 存储属性
 class DataImporter {
@@ -59,6 +77,9 @@ class DataManager {
 }
 
 // 计算属性
+// 不分配独立的存储空间保存计算结果
+// 每次调用时都会被执行
+// 更像一个函数，不过不能接收参数，同时必须有返回值
 /* 完整定义为
  var 计算类型的名字:类型
  {
